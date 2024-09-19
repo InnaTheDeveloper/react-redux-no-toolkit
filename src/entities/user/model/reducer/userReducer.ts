@@ -23,8 +23,6 @@ export const userReducer: Reducer<IUserStateSchema, UserActions> = (
       return {
         ...state,
         userData: action.payload,
-        isLoading: false,
-        error: "",
       };
     }
 
@@ -37,11 +35,11 @@ export const userReducer: Reducer<IUserStateSchema, UserActions> = (
     }
 
     case UserActionTypes.SET_ERROR: {
-      return { ...state, error: action.payload, isLoading: false };
+      return { ...state, error: action.payload };
     }
 
     default: {
-      return { ...state };
+      return state;
     }
   }
 };
