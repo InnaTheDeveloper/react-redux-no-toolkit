@@ -1,0 +1,4 @@
+export enum AdminActionTypes {
+  SET_USERS_DATA = "ADMIN/SET_USERS_DATA",
+  SET_IS_LOGGED = "ADMIN/SET_IS_LOGGED",
+}

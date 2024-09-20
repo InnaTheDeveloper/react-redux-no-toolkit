@@ -1,7 +1,8 @@
-import { Reducer } from "redux";
-import { IUserStateSchema } from "../types/userTypes";
-import { UserActions } from "../types/userActions";
 import { UserActionTypes } from "../actionTypes/userActionTypes";
+// types
+import type { IUserStateSchema } from "../types/userTypes";
+import type { Reducer } from "redux";
+import type { UserActions } from "../types/userActions";
 
 const initialState: IUserStateSchema = {
   isLoggedIn: false,
