@@ -4,7 +4,7 @@ import { GetUsersResponse, GetUsersRequest } from "../types/usersServices";
 class AdminService {
   private usersServiceEndpoint = "/users";
 
-  async getAllUsers(params: GetUsersRequest) {
+  async getAllUsers(_params: GetUsersRequest) {
     return jsonplaceholderAxiosInstance.get<GetUsersResponse>(
       this.usersServiceEndpoint
     );
