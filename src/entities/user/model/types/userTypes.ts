@@ -5,8 +5,8 @@ export interface IUser {
 }
 
 export interface IUserStateSchema {
-  isLoggedIn: boolean;
   userData: IUser;
+  isLoggedIn: boolean;
   isLoading: boolean;
   error: string;
 }

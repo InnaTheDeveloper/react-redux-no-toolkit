@@ -6,13 +6,10 @@ import type { AdminActions } from "../types/adminActions";
 
 const initialState: IAdminStateSchema = {
   isLoggedIn: false,
-  usersData: [
-    {
-      email: "",
-      id: "",
-      name: "",
-    },
-  ],
+  usersData: [],
+  isLoading: false,
+  isError: false,
+  error: "",
 };
 
 export const adminReducer: Reducer<IAdminStateSchema, AdminActions> = (
@@ -25,6 +22,18 @@ export const adminReducer: Reducer<IAdminStateSchema, AdminActions> = (
         ...state,
         usersData: action.payload,
       };
+    }
+
+    case AdminActionTypes.SET_IS_LOADING: {
+      return { ...state, isLoading: action.payload };
+    }
+
+    case AdminActionTypes.SET_IS_ERROR: {
+      return { ...state, isError: action.payload };
+    }
+
+    case AdminActionTypes.SET_ERROR: {
+      return { ...state, error: action.payload };
     }
 
     case AdminActionTypes.SET_IS_LOGGED: {

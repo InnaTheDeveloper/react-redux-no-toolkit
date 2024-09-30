@@ -8,7 +8,21 @@ export const getAllUsers = (
   dispatch: Dispatch<AdminActions>,
   getState: () => StateSchema
 ) => {
-  adminServices.getAllUsers().then(({ data }) => {
-    dispatch(adminActionCreators.setUsersData(data));
-  });
+  const { setError, setIsError, setIsLoading, setUsersData } =
+    adminActionCreators;
+
+  dispatch(setIsLoading(true));
+
+  adminServices
+    .getAllUsers()
+    .then(({ data }) => {
+      dispatch(setUsersData(data));
+    })
+    .catch((error) => {
+      dispatch(setError(error.message));
+      dispatch(setIsError(true));
+    })
+    .finally(() => {
+      dispatch(setIsLoading(false));
+    });
 };
